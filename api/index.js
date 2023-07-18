@@ -19,7 +19,7 @@ const jwtSecret = 'dgjwewh3rhgsddggs';
 
 // file upload
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
+// const upload = multer({ dest: 'uploads/' });
 
 
 app.use(cookieParser());

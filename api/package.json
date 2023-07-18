@@ -16,7 +16,8 @@
 	"scripts": {
 		"build": "babel src -d lib/",
 		"test": "jest",
-		"start": "nodemon index.js"
+		"start": "node index.js",
+		"dev": "nodemon index.js"
 	},
 	"main": "index.js",
 	"devDependencies": {

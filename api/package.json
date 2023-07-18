@@ -18,6 +18,7 @@
 		"test": "jest",
 		"start": "nodemon index.js"
 	},
+	"main": "index.js",
 	"devDependencies": {
 		"@babel/cli": "^7.22.9",
 		"@babel/core": "^7.22.9",

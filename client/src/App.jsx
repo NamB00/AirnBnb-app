@@ -13,6 +13,7 @@ import { toast } from 'react-hot-toast';
 
 
 axios.defaults.baseURL = 'http://127.0.0.1:4000';
+// axios.defaults.baseURL = 'https://airn-bnb-app-api2.vercel.app';
 axios.defaults.withCredentials = true;
 
 

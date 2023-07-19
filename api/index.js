@@ -97,7 +97,7 @@ app.post('/profile', async (req, res) => {
 app.get('/logout', async (req, res) => {
   // clearCookie('token')
   res.clearCookie('token', { httpOnly: true, sameSite: 'none', secure: 'false' });
-  res.cookie('token', null, { httpOnly: true, sameSite: 'none', secure: 'false' });
+  res.cookie('token', '', { httpOnly: true, sameSite: 'none', secure: 'false', maxAge: 1 });
   return res.status(200).json('User Logged out');
 });
 

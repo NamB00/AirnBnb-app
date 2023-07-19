@@ -26,8 +26,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
   credentials: true,
-  // origin: 'http://127.0.0.1:5173',
-  origin: 'https://airn-bnb-app-client.vercel.app'
+  origin: 'http://127.0.0.1:5173',
+  // origin: 'https://airn-bnb-app-client.vercel.app'
 }));
 try {
   mongoose.connect(process.env.MONGGO_URL);
@@ -148,13 +148,13 @@ app.get('/my-places', async (req, res) => {
 });
 
 app.post('/my-places-detail', async (req, res) => {
-  //   const { idPlace } = req.body;
+  const { idPlace } = req.body;
   //   const { token } = req.cookies;
   //   if (token) {
   //     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
   //       if (err) throw err;
-  const places = await Place.find();
-  // const places = await Place.find({ _id: idPlace });
+  // const places = await Place.find();
+  const places = await Place.find({ _id: idPlace });
   res.json(places);
   //   })
   // } else {

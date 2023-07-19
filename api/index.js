@@ -95,7 +95,8 @@ app.get('/profile', async (req, res) => {
 });
 
 app.get('/logout', async (req, res) => {
-  res.clearCookie('token').cookie('token', '');
+  // clearCookie('token')
+  res.cookie('token', null);
   return res.status(200).json('User Logged out');
 });
 

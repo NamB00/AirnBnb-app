@@ -66,7 +66,7 @@ app.post('/login', async (req, res) => {
         },
           jwtSecret, {}, (err, token) => {
             if (err) throw err;
-            res.cookie('token', token, { httpOnly: true });
+            res.cookie('token', token, { httpOnly: true, sameSite: 'none', secure: 'false' });
             res.json(token);
           });
       } else {

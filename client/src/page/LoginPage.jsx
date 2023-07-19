@@ -41,6 +41,7 @@ const LoginPage = () => {
           setUser(res.data);
           toast.success('Login successfully');
           navigate("/");
+          navigate(0);
         })
         .catch(() => {
           toast.error('Login fail');

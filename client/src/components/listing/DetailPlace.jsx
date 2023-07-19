@@ -76,7 +76,7 @@ const DetailPlace = ({ reservations = [], listing }) => {
       })
       .then(() => {
         setDateRange(initialDateRange);
-        navigate(0);
+        navigate('/');
         toast.success('Booking successfully!');
       })
       .catch(() => {

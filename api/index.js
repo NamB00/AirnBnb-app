@@ -26,8 +26,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
   credentials: true,
-  // origin: 'http://127.0.0.1:5173',
-  origin: 'https://airn-bnb-app-client.vercel.app'
+  origin: 'http://127.0.0.1:5173',
+  // origin: 'https://airn-bnb-app-client.vercel.app'
 }));
 try {
   mongoose.connect(process.env.MONGGO_URL);
@@ -66,7 +66,8 @@ app.post('/login', async (req, res) => {
         },
           jwtSecret, {}, (err, token) => {
             if (err) throw err;
-            res.cookie('token', token).json(token);
+            res.cookie('token', token);
+            res.json(token);
           });
       } else {
         res.status(422).json("wrong password");

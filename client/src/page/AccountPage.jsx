@@ -28,7 +28,7 @@ const AccountPage = () => {
   }
   async function logout() {
     await axios
-      .post('/logout')
+      .get('/logout')
       .then(() => {
         // registerModal.onClose();
         setUser(null);

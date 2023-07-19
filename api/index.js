@@ -17,8 +17,9 @@ const hash = bcrypt.hashSync("B4c0/\/", salt);
 const jwt = require('jsonwebtoken');
 const jwtSecret = 'dgjwewh3rhgsddggs';
 
+
 // file upload
-const multer = require('multer');
+// const multer = require('multer');
 // const upload = multer({ dest: 'uploads/' });
 
 
@@ -26,8 +27,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
   credentials: true,
-  // origin: 'http://127.0.0.1:5173',
-  origin: 'https://airn-bnb-app-client.vercel.app'
+  origin: 'http://127.0.0.1:5173',
+  // origin: 'https://airn-bnb-app-client.vercel.app'
 }));
 try {
   mongoose.connect(process.env.MONGGO_URL);
@@ -86,15 +87,16 @@ app.get('/profile', async (req, res) => {
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
       if (err) throw err;
       const { name, email, _id } = await User.findById(userData.id);
-      res.json({ name, email, _id });
+      res.json({ name, email, _id, token });
     })
   } else {
     res.json(null);
   }
 });
 
-app.post('/logout', async (req, res) => {
-  res.clearCookie('token').cookie('token', '').json(true).end();
+app.get('/logout', async (req, res) => {
+  res.clearCookie('token').cookie('token', '');
+  return res.status(200).json('User Logged out');
 });
 
 app.post('/places', async (req, res) => {
@@ -137,7 +139,7 @@ app.get('/my-places', async (req, res) => {
   // const { token } = req.cookies;
   // if (token) {
   //   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-  //     if (err) throw err;
+  // if (err) throw err;
   const places = await Place.find();
   // const places = await Place.find({ owner: userData.id });
   res.json(places);

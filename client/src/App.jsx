@@ -8,12 +8,10 @@ import Layout from '../layout/Layout';
 import IndexPage from './page/IndexPage';
 import ListingCard from './components/listing/ListingCard';
 import DetailPlace from './components/listing/DetailPlace';
-import { useEffect, useState } from 'react';
-import { toast } from 'react-hot-toast';
 
 
-// axios.defaults.baseURL = 'http://127.0.0.1:4000';
-axios.defaults.baseURL = 'https://airn-bnb-app-api2.vercel.app';
+axios.defaults.baseURL = 'http://127.0.0.1:4000';
+// axios.defaults.baseURL = 'https://airn-bnb-app-api2.vercel.app';
 axios.defaults.withCredentials = true;
 
 

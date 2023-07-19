@@ -32,8 +32,10 @@ const AccountPage = () => {
       .then(() => {
         // registerModal.onClose();
         navigate("/");
-        () => setUser(null);
-        toast.success('Logout successfully');
+        setUser(null);
+        if (user === null) {
+          toast.success('Logout successfully');
+        }
         console.log('Account: ', user);
       })
       .catch(() => {

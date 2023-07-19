@@ -80,6 +80,15 @@ app.post('/login', async (req, res) => {
     res.status(402).json(error);
   }
 });
+
+
+app.get('/logout', async (req, res) => {
+  // clearCookie('token')
+  res.clearCookie('token', { httpOnly: true, sameSite: 'none', secure: 'false' });
+  res.cookie('token', '', { httpOnly: true, sameSite: 'none', secure: 'false', maxAge: 1 });
+  return res.status(200).json('User Logged out');
+});
+
 // 1:40-40
 app.post('/profile', async (req, res) => {
   const { token } = req.cookies;
@@ -92,13 +101,6 @@ app.post('/profile', async (req, res) => {
   } else {
     res.json(null);
   }
-});
-
-app.get('/logout', async (req, res) => {
-  // clearCookie('token')
-  res.clearCookie('token', { httpOnly: true, sameSite: 'none', secure: 'false' });
-  res.cookie('token', '', { httpOnly: true, sameSite: 'none', secure: 'false', maxAge: 1 });
-  return res.status(200).json('User Logged out');
 });
 
 app.post('/places', async (req, res) => {

@@ -94,7 +94,7 @@ app.post('/profile', async (req, res) => {
   }
 });
 
-app.get('/logout', async (req, res) => {
+app.post('/logout', async (req, res) => {
   // clearCookie('token')
   res.clearCookie('token');
   res.cookie('token', null);

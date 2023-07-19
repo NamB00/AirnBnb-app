@@ -28,12 +28,12 @@ const AccountPage = () => {
   }
   async function logout() {
     await axios
-      .get('/logout')
+      .post('/logout')
       .then(() => {
         // registerModal.onClose();
+        navigate("/");
         setUser(null);
         toast.success('Logout successfully');
-        navigate("/");
       })
       .catch(() => {
         toast.error('Something wrong!');
